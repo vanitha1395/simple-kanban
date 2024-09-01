@@ -13,7 +13,7 @@ Enabling the capability to create tasks, toward To Do and then move tasks betwee
 > json-server --watch db.json --port 3000
 
 ### To start kanban front-end application
-
+> Open a new terminal
 > cd kanban-app
 > npm install
 
