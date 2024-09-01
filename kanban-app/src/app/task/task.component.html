@@ -1,0 +1,13 @@
+<div class="task">
+  <h3>{{ task.title }}</h3>
+  <p>{{ task.description }}</p>
+  <small>Assignee: {{ task.assignee }}</small>
+  <small>Due: {{ task.dueDate }}</small>
+  <small>Priority: {{ task.priority }}</small>
+
+  <!-- Container for action buttons -->
+  <div class="actions">
+    <button class="edit-btn" (click)="editTask()">Edit</button>
+    <button class="delete-btn" (click)="deleteTask()">Delete</button>
+  </div>
+</div>

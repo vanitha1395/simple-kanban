@@ -1,0 +1,62 @@
+.task {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s;
+
+  &:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.1em;
+    color: #333;
+  }
+
+  p {
+    margin: 0 0 10px 0;
+    color: #555;
+  }
+
+  small {
+    display: block;
+    color: #888;
+    font-size: 0.85em;
+  }
+
+  // Container for action buttons
+  .actions {
+    margin-top: 10px;
+
+    button {
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 0.9em;
+      cursor: pointer;
+      margin-right: 5px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .edit-btn {
+      background-color: orange; // Green
+      color: white;
+
+      &:hover {
+        background-color: darkorange;
+      }
+    }
+
+    .delete-btn {
+      background-color: lightcoral; // Red
+      color: white;
+
+      &:hover {
+        background-color: red;
+      }
+    }
+  }
+}

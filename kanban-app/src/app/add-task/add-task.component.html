@@ -1,0 +1,36 @@
+<div class="add-task">
+  <h2>Add New Task</h2>
+  <form (ngSubmit)="addTask()">
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input id="title" [(ngModel)]="newTask.title" name="title" required />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea id="description" [(ngModel)]="newTask.description" name="description"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="priority">Priority:</label>
+      <select id="priority" [(ngModel)]="newTask.priority" name="priority" required>
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="assignee">Assignee:</label>
+      <input id="assignee" [(ngModel)]="newTask.assignee" name="assignee" />
+    </div>
+
+    <div class="form-group">
+      <label for="dueDate">Due Date:</label>
+      <input id="dueDate" [(ngModel)]="newTask.dueDate" name="dueDate" type="date" />
+    </div>
+
+    <button type="submit">Add Task</button>
+    <button type="submit">Cancel</button>
+  </form>
+</div>

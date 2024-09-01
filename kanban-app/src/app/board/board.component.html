@@ -1,0 +1,14 @@
+<div class="kanban-board">
+  <app-add-task (taskAdded)="onTaskAdded($event)"></app-add-task>
+
+  <div class="columns-container">
+    <app-column *ngFor="let column of columns"
+                [title]="column.title"
+                [tasks]="column.tasks"
+                [id]="column.id"
+                [connectedDropLists]="connectedDropLists"
+                (taskDropped)="handleTaskDrop($event)"
+                (taskDeleted)="onTaskDelete($event)">
+    </app-column>
+  </div>
+</div>

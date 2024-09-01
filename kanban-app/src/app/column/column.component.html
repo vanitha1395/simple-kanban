@@ -1,0 +1,16 @@
+<div class="column"
+     cdkDropList
+     [cdkDropListData]="tasks"
+     [id]="title"
+     [cdkDropListConnectedTo]="connectedDropLists"
+     (cdkDropListDropped)="onDrop($event)">
+  <h2>{{ title }}</h2>
+  <div class="tasks">
+    <div *ngFor="let task of tasks"
+         class="task"
+         cdkDrag
+         [cdkDragData]="task">
+      <app-task [task]="task" (delete)="onDelete(task.id)"></app-task>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,63 @@
+.kanban-board {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #f4f5f7;
+
+  // Add Task form styling
+  app-add-task {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: hwb(171 76% 13%);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  // Container for all columns
+  .columns-container {
+    display: flex;
+    gap: 15px; /* Space between columns */
+  }
+
+  // Individual column styling
+  .column {
+    flex: 1;
+    min-width: 200px;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: 1.2em;
+      color: #333;
+    }
+
+    .tasks {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .task {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 10px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      cursor: move;
+
+      &:active {
+        opacity: 0.8;
+      }
+    }
+
+    /* Styling for the drag preview */
+    .cdk-drag-preview {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+  }
+}

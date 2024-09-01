@@ -1,0 +1,31 @@
+{
+  "tasks": [
+    {
+      "id": "1",
+      "title": "Set up project",
+      "description": "Initialize the project repository and set up the initial Angular project structure.",
+      "status": "Review",
+      "priority": "High",
+      "assignee": "Alice",
+      "dueDate": "2024-09-05"
+    },
+    {
+      "id": "2",
+      "title": "Design Kanban Board",
+      "description": "Create the initial design for the Kanban board UI, including columns and tasks layout.",
+      "status": "Done",
+      "priority": "Medium",
+      "assignee": "Bob",
+      "dueDate": "2024-09-06"
+    },
+    {
+      "id": "51",
+      "title": "sdasd",
+      "description": "asdasd",
+      "status": "To Do",
+      "priority": "Medium",
+      "assignee": "as",
+      "dueDate": "2024-09-01"
+    }
+  ]
+}
