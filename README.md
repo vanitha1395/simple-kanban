@@ -36,4 +36,5 @@ Enabling the capability to create tasks, toward To Do and then move tasks betwee
 ## Known limitations:
 * Edit feature not working(Not implemented)
 * Improve styling for add-task text-boxes
+* Newly added tasks into board are not possible to move or delete due to json-server error
 
