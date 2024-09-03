@@ -11,7 +11,6 @@ export class TaskComponent {
   @Output() taskDeleted = new EventEmitter<number>(); // Output event for deletion
 
   deleteTask() {
-    console.log("event sent")
     this.taskDeleted.emit(this.task.id); // Emit the ID of the task to delete
   }
 }

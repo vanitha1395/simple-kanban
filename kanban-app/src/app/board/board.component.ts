@@ -64,7 +64,6 @@ export class BoardComponent implements OnInit {
   }
 
   onTaskDelete(taskId: number): void {
-    console.log('id', taskId)
     this.taskService.deleteTask(taskId).subscribe(() => {
       this.loadTasks(); // Reload tasks after deleting
     });
@@ -93,12 +92,10 @@ export class BoardComponent implements OnInit {
       }
     })
     const nextId: number = Number(maxId) + 1;
-    console.log(nextId);
     return nextId;
   }
 
   handleTaskUpdate(): void {
     this.loadTasks(); // Reload tasks to reflect changes
-    console.log("reload-processed");
   }
 }

@@ -25,7 +25,6 @@ export class ColumnComponent {
   }
 
   onDelete(taskId: number): void {
-    console.log("delete")
     this.deleteTask.emit(taskId);
   }
 }
