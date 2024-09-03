@@ -8,9 +8,8 @@ Enabling the capability to create tasks, toward To Do and then move tasks betwee
 
 ### To start simple-server based on json-server
 
-> cd simple-server
 > npm install
-> json-server --watch db.json --port 3000
+> json-server --watch simple-server/db.json --port 3000
 
 ### To start kanban front-end application
 > Open a new terminal
