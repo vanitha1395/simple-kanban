@@ -8,14 +8,10 @@ import { Task } from '../models/task.model';
 })
 export class TaskComponent {
   @Input() task!: Task;
-  @Output() delete = new EventEmitter<number>(); // Output event for deletion
+  @Output() taskDeleted = new EventEmitter<number>(); // Output event for deletion
 
   deleteTask() {
-    console.log(this.task)
-    this.delete.emit(this.task.id); // Emit the ID of the task to delete
-  }
-
-  editTask() {
-    console.log("edit-attempted")
+    console.log("event sent")
+    this.taskDeleted.emit(this.task.id); // Emit the ID of the task to delete
   }
 }

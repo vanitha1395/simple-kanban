@@ -10,7 +10,7 @@
          class="task"
          cdkDrag
          [cdkDragData]="task">
-      <app-task [task]="task" (delete)="onDelete(task.id)"></app-task>
+      <app-task [task]="task" (taskDeleted)="onDelete(task.id)"></app-task>
     </div>
   </div>
 </div>

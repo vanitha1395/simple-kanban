@@ -2,6 +2,8 @@ import { Component, EventEmitter, Output, Input, OnInit } from '@angular/core';
 import { Task } from '../models/task.model';
 import { Column } from '../models/column.model';
 import { TaskService } from '../services/task.service';
+import { TaskStatus } from '../models/task-status.enum';
+import { Priority } from '../models/priority.enum';
 
 @Component({
   selector: 'app-add-task',
@@ -17,8 +19,8 @@ export class AddTaskComponent implements OnInit {
     id: 0,
     title: '',
     description: '',
-    status: 'To Do',
-    priority: 'Medium',
+    status: TaskStatus.ToDo,
+    priority: Priority.Medium,
     assignee: '',
     dueDate: new Date()
   };

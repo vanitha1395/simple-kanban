@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { CdkDragDrop } from '@angular/cdk/drag-drop';
 
 import { Column } from '../models/column.model';
 import { Task } from '../models/task.model';
+import { TaskStatus } from '../models/task-status.enum';
 import { TaskService } from '../services/task.service';
+import { DragAndDropService } from '../services/drag-and-drop.service';
 
 @Component({
   selector: 'app-board',
@@ -15,21 +16,27 @@ export class BoardComponent implements OnInit {
   connectedDropLists: string[] = []; // Holds the IDs of connected drop lists
   tasks: Task[] = [];
 
-  constructor(private taskService: TaskService) {}
+  constructor(
+    private taskService: TaskService,
+    private dragAndDropService: DragAndDropService
+  ) {}
 
   ngOnInit() {
     // Initialize the columns
     this.columns = [
-      { id: 1, title: 'To Do', tasks: [] },
-      { id: 2, title: 'In Progress', tasks: [] },
-      { id: 3, title: 'Review', tasks: [] },
-      { id: 4, title: 'Done', tasks: [] }
+      { id: 1, title: TaskStatus.ToDo, tasks: [] },
+      { id: 2, title: TaskStatus.InProgress, tasks: [] },
+      { id: 3, title: TaskStatus.Review, tasks: [] },
+      { id: 4, title: TaskStatus.Done, tasks: [] }
     ];
     this.loadTasks();
+    // Subscribe to the DragAndDropService to reload tasks when notified
+    this.dragAndDropService.tasksUpdated$.subscribe(() => {
+      this.loadTasks();
+    });
   }
 
   loadTasks(): void {
-    console.log("tasks loaded...")
     this.taskService.getTasks().subscribe((tasks) => {
       this.tasks = tasks;
       this.organizeTasksByStatus();
@@ -42,7 +49,6 @@ export class BoardComponent implements OnInit {
     });
     // Update connectedDropLists with all column IDs
     this.connectedDropLists = this.columns.map(column => column.title);
-    console.log(this.connectedDropLists)
   }
 
   addTask(task: Task): void {
@@ -58,6 +64,7 @@ export class BoardComponent implements OnInit {
   }
 
   onTaskDelete(taskId: number): void {
+    console.log('id', taskId)
     this.taskService.deleteTask(taskId).subscribe(() => {
       this.loadTasks(); // Reload tasks after deleting
     });
@@ -79,22 +86,19 @@ export class BoardComponent implements OnInit {
   }
 
   generateTaskId(): number {
-    let maxId = 0;
+    let maxId: number = 0;
     this.tasks.forEach(task =>{
       if (task.id > maxId) {
         maxId = task.id;
       }
     })
-    console.log(maxId);
-    return maxId + 1;
+    const nextId: number = Number(maxId) + 1;
+    console.log(nextId);
+    return nextId;
   }
 
-  handleTaskDrop(event: { task: Task; newStatus: number }): void {
-    const { task, newStatus } = event;
-    task.status = this.columns[newStatus-1].title;
-    this.taskService.updateTask(task).subscribe(() => {
-      this.loadTasks(); // Reload tasks to reflect changes
-    });
-
+  handleTaskUpdate(): void {
+    this.loadTasks(); // Reload tasks to reflect changes
+    console.log("reload-processed");
   }
 }

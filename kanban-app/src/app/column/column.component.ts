@@ -1,31 +1,31 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { Task } from '../models/task.model';
+import { TaskStatus } from '../models/task-status.enum';
+import { DragAndDropService } from '../services/drag-and-drop.service';
 
 @Component({
   selector: 'app-column',
   templateUrl: './column.component.html',
   styleUrls: ['./column.component.scss']
 })
+
 export class ColumnComponent {
-  @Input() title: string = '';
+  @Input() title: TaskStatus = TaskStatus.ToDo;
   @Input() tasks: Task[] = [];
   @Input() id: number = 0; // Unique ID for the column
   @Input() connectedDropLists: string[] = [];
-  @Output() taskDropped = new EventEmitter<{ task: Task; newStatus: number }>();
-  @Output() taskDeleted = new EventEmitter<number>();
+  @Output() deleteTask = new EventEmitter<number>();
+
+  constructor(private dragAndDropService: DragAndDropService) {}
 
   onDrop(event: CdkDragDrop<Task[]>): void {
-
-    const task = event.item.data as Task;
-
-    const newStatus = this.id; // Column title becomes the new task status
-    console.log('new column:', this.id)
-    console.log(newStatus);
-    this.taskDropped.emit({ task, newStatus });
+    const newStatus = this.title; // Column title becomes the new task status
+    this.dragAndDropService.handleDrop( event, newStatus );
   }
 
   onDelete(taskId: number): void {
-    this.taskDeleted.emit(taskId);
+    console.log("delete")
+    this.deleteTask.emit(taskId);
   }
 }
