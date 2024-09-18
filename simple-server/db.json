@@ -1,0 +1,49 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Set up project",
+      "description": "Initialize the project repository and set up the initial Angular project structure.",
+      "status": "To Do",
+      "priority": "High",
+      "assignee": "Alice",
+      "dueDate": "2024-09-05"
+    },
+    {
+      "id": 2,
+      "title": "Design Kanban Board",
+      "description": "Create the initial design for the Kanban board UI, including columns and tasks layout.",
+      "status": "In Progress",
+      "priority": "Medium",
+      "assignee": "Bob",
+      "dueDate": "2024-09-06"
+    },
+    {
+      "id": 3,
+      "title": "Implement Task Drag-and-Drop",
+      "description": "Add drag-and-drop functionality to move tasks between columns on the Kanban board.",
+      "status": "To Do",
+      "priority": "Low",
+      "assignee": "Charlie",
+      "dueDate": "2024-09-07"
+    },
+    {
+      "id": 4,
+      "title": "Code Review",
+      "description": "Conduct a review of the latest code to ensure it meets quality standards.",
+      "status": "Review",
+      "priority": "High",
+      "assignee": "David",
+      "dueDate": "2024-09-08"
+    },
+    {
+      "id": 5,
+      "title": "Deploy to Production",
+      "description": "Deploy the completed application to the production environment.",
+      "status": "Done",
+      "priority": "High",
+      "assignee": "Eve",
+      "dueDate": "2024-09-09"
+    }
+  ]
+}
